@@ -8,7 +8,7 @@ module.exports = async function(req, res) {
 
   try {
     if (clienteId && clienteId !== "favicon.ico" && clienteId !== "api/redireccion") {
-      const respuesta = await fetch(`${urlScript}?api=true&cliente=${clienteId}`);
+      const respuesta = await fetch(`${urlScript}?api=true&cliente=${clienteId}&t=${Date.now()}`);
       const datos = await respuesta.json();
       if (datos && datos.imagen) imageUrl = datos.imagen;
       if (datos && datos.titulo) titulo = datos.titulo;
